@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Cookies from 'js-cookie'
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export const useLogin = () => {
 	const [email, setEmail] = useState<string>("");
 
 	const [password, setPassword] = useState<string>("");
+
+    const router = useRouter()
 	
 
 	const handleChangeEmail = (e: React.FormEvent<HTMLInputElement>) => {
@@ -25,8 +27,7 @@ export const useLogin = () => {
         })
         const awaitedResponse = await response.json()
         const cookies = Cookies.get()
-        console.log(cookies)
-        redirect('/teste')
+        router.push('/teste')
     }
 
 	const changeAuthState = {
