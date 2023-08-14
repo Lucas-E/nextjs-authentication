@@ -6,21 +6,13 @@ export const useLogin = () => {
 	const [email, setEmail] = useState<string>("");
 
 	const [password, setPassword] = useState<string>("");
-
-    const authState = {
-		email: email,
-		password: password,
-	};
-
 	
 
 	const handleChangeEmail = (e: React.FormEvent<HTMLInputElement>) => {
 		setEmail(e.currentTarget.value);
-        authState.email = email
 	};
 	const handleChangePassword = (e: React.FormEvent<HTMLInputElement>) => {
 		setPassword(e.currentTarget.value);
-        authState.password = password
 	};
     const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
